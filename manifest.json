@@ -1,0 +1,11 @@
+{
+  "name": "Katwal Store — Nepali Groceries",
+  "short_name": "Katwal Store",
+  "description": "Authentic Nepali groceries in Darwin. Same-day delivery and click & collect from Muirhead.",
+  "start_url": "./#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#C8102E",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

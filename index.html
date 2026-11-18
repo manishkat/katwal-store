@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Katwal Store — Authentic Nepali Groceries in Darwin</title>
+<meta name="description" content="Authentic Nepali groceries in Darwin: rice, dal, masala, achar, gundruk, momo and more. Same-day delivery and click & collect from Muirhead NT.">
+<meta name="theme-color" content="#C8102E">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Mukta:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="testbar" id="testbar" hidden>TEST MODE — online payments are simulated. No real money is taken.</div>
+<div class="announce" id="announce"></div>
+<header class="hdr">
+  <div class="hrow">
+    <a class="brand" href="#home" aria-label="Katwal Store home"><img src="icon.svg" alt="" width="40" height="40"><span><b>Katwal Store</b><small id="brandsub">Nepali groceries · Darwin</small></span></a>
+    <button class="status" id="status" onclick="KS.go('#store')"></button>
+    <div class="searchbox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg><input id="q" type="search" placeholder="Search dal, momo, timur, गुन्द्रुक…" autocomplete="off" aria-label="Search products"><button id="qclear" class="qclear" aria-label="Clear search" hidden>✕</button></div>
+    <div class="hacts">
+      <button class="lang" id="lang" aria-label="Switch language">नेपाली</button>
+      <a class="cartbtn" href="#cart" aria-label="Cart"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20.5" r="1.3"/><circle cx="17" cy="20.5" r="1.3"/></svg><span class="cnum" id="cnum">0</span><span class="ctot" id="ctot">$0.00</span></a>
+    </div>
+  </div>
+  <div class="mode"><div class="seg" id="modeseg"><button data-mode="delivery" class="on">🚚 <span data-t="Delivery">Delivery</span></button><button data-mode="pickup">🛍️ <span data-t="Pick up">Pick up</span></button></div><span class="modeinfo" id="modeinfo"></span></div>
+  <nav class="catbar" id="catbar" aria-label="Categories"></nav>
+</header>
+
+<main id="app"><div class="loading">Loading Katwal Store…</div></main>
+
+<footer class="ftr">
+  <div class="fgrid">
+    <div><div class="brand"><img src="icon.svg" alt="" width="36" height="36"><span><b>Katwal Store</b><small>नेपाली किराना पसल</small></span></div><p id="faddr" class="fp"></p><p class="fp"><a id="fphone" href="#"></a><br><span id="femail"></span></p></div>
+    <div><h4 data-t="Shop">Shop</h4><div id="fcats"></div></div>
+    <div><h4 data-t="Help">Help</h4><a href="#store" data-t="Store, hours & map">Store, hours &amp; map</a><a href="#help" data-t="Delivery & returns">Delivery &amp; returns</a><a href="#help">FAQ</a><a href="#privacy">Privacy</a><a href="#credits">Photo credits</a><a href="admin.html">Owner login</a></div>
+    <div><h4 data-t="Hours">Hours</h4><div id="fhours" class="fp"></div></div>
+  </div>
+  <div class="fbot">© 2026 Katwal Store · Muirhead NT · <span>Visa · Mastercard · PayPal · Cash on pickup</span></div>
+</footer>
+
+<a class="floatcart" id="floatcart" href="#cart" hidden><span id="fcn">0 items</span><b data-t="View cart">View cart</b><span id="fct">$0.00</span></a>
+<nav class="bnav" aria-label="Main">
+  <a href="#home" data-nav="home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-t="Home">Home</span></a>
+  <a href="#shop" data-nav="shop"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-t="Shop">Shop</span></a>
+  <a href="#kits" data-nav="kits"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16l-1.5 12h-13z"/><path d="M8 8a4 4 0 0 1 8 0"/></svg><span data-t="Kits">Kits</span></a>
+  <a href="#cart" data-nav="cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/></svg><span data-t="Cart">Cart</span><i id="bnum"></i></a>
+  <a href="#store" data-nav="store"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-t="Store">Store</span></a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal" id="modal"><div class="mbox"><button class="mx" onclick="KS.closeModal()" aria-label="Close">✕</button><div id="mbody"></div></div></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
